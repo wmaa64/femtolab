@@ -2711,6 +2711,10 @@ table.additional-info>tbody>tr>th {
   border: 1px solid #000000;
 }
 
+.cart-container>.cart-heading {
+  color: red;
+}
+
 .cart-wrapper {
   width: 100vw;
   background: rgba(0, 0, 0, 0.5);
@@ -2766,11 +2770,12 @@ span.item-desc {
   gap: 2px;
   margin-left: 10px;
   border: none;
-  background-color: transparent;
+  background-color: blue;
 }
 
 .cart-heading .heading {
   margin-left: 10px;
+  color: red;
 }
 
 .cart-num-items {
@@ -2812,6 +2817,9 @@ span.item-desc {
   padding: 20px 20px 0 0;
 }
 
+.product>.remove-item {
+  color: red;
+}
 .product .cart-product-image {
   height: 75px;
   background-color: #ebebeb;
@@ -2955,6 +2963,7 @@ span.item-desc {
 
 .cart-heading .heading {
   margin-left: 10px;
+  color: red;
 }
 
 .cart-num-items {
