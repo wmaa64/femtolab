@@ -105,7 +105,7 @@ const Header = () => {
           <span className="phone-icon">{t("emailto")}: </span>
           {/*<MdEmail size={20} color="#d5272e" />*/}
           <a href="mailto:info@femtolab.shop?subject=Inquiry&body=Hello" className="phone-number" >
-            📧 sales@femtotrade.com
+            📧 info@femtolab.shop
           </a><br/>
           
           {userInfo ? (
