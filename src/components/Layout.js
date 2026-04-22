@@ -13,8 +13,7 @@ return (
         {/* الأساسيات */}
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="google-site-verification" content="WUlB-DC4Ep631yNAivYsTKsJL9q2tN8O0hlLFJcES8c" />
-
+        <meta name="google-site-verification" content="tqcJSg0KbHZK02Lz0iDjXxRl7i0WtBvMnHL4DM3aRBk" />
         {/* SEO */}
         <link rel="canonical" href="https://femtolab.netlify.app/" />
         <title>FemtoTrade - Agent for Borosil, Falcon, Corning, Cpc Biotech, Bioendo, PlastiLab</title>
@@ -60,7 +59,7 @@ return (
             <NavBar />
         </div>
     </header>
-    
+
     <div className="layout">
         <main className="main-container">
             {children}
