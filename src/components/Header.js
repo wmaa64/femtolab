@@ -104,7 +104,7 @@ const Header = () => {
           <a href="tel:+2 01110124373" className='phone-number' >{t("phonenumber2")}</a><br/>
           <span className="phone-icon">{t("emailto")}: </span>
           {/*<MdEmail size={20} color="#d5272e" />*/}
-          <a href="mailto:sales@femtotrade.com?subject=Inquiry&body=Hello" className="phone-number" >
+          <a href="mailto:info@femtolab.shop?subject=Inquiry&body=Hello" className="phone-number" >
             📧 sales@femtotrade.com
           </a><br/>
           
@@ -119,16 +119,16 @@ const Header = () => {
           )}
 
           <div >
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/femtolab" target="_blank" rel="noopener noreferrer">
                   <AiFillInstagram   size={30} color="#E1306C" /> {/* Instagram */}
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://twitter.com/femtolab" target="_blank" rel="noopener noreferrer">
                   <AiOutlineTwitter  size={30} color="#1DA1F2" /> {/* Twitter */}
               </a>
-              <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://facebook.com/share/femtolab" target="_blank" rel="noopener noreferrer">
                   <AiFillFacebook    size={30} color="#1877F2" /> {/* Facebook */}
               </a>
-              <a href="https://wa.me/201554445110?text=I%20just%20placed%20an%20order" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/201005126629?text=I%20just%20placed%20an%20order" target="_blank" rel="noopener noreferrer">
                   <AiOutlineWhatsApp size={30} color="#25D366" /> {/* WhatsApp */}
               </a>
           </div>
