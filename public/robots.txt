@@ -1,0 +1,19 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /contact
+Disallow: canceled
+Disallow: /delivery
+Disallow: /orders/manage
+Disallow: /privacy
+Disallow: /products/manage
+Disallow: /shop
+Disallow: /success
+Disallow: /terms
+Disallow: /users/*
+
+# Host
+Host: https://femtolab.shop
+
+# Sitemaps
+Sitemap: https://femtolab.shop/sitemap.xml
