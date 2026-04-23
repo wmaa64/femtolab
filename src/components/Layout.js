@@ -54,10 +54,12 @@ return (
     </Head>
 
     <header>
-        <div className="top-bar" >
+        {/*<div className="top-bar" >
             <Header />
             <NavBar />
-        </div>
+        </div>*/}
+        <Header />
+        <NavBar />
     </header>
 
     <div className="layout">

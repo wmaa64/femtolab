@@ -12,14 +12,24 @@ const Home = () => {
 
   const images = [
     '/images/image1.jpg',
-    '/images/image2u.jpg',
+    '/images/image2.jpg',
     '/images/image3.jpg',
     '/images/image4.jpg',
     '/images/image5.jpg',
     '/images/image6.jpg',
     '/images/image7.jpg',
   ];
-   
+
+    const offers = [
+    '/images/offers/image1.jpeg',
+    '/images/offers/image2.jpeg',
+    '/images/offers/image3.jpeg',
+    '/images/offers/image4.jpeg',
+    '/images/offers/image5.jpeg',
+    '/images/offers/image6.jpeg',
+    '/images/offers/image7.jpeg',
+  ];
+
   // ✅ Fetch data client-side from API route
   useEffect(() => {
   
@@ -61,6 +71,13 @@ return (
   <div className="section_container" dir={isRTL ? "rtl" : "ltr"}>
     <div className="carousel_box">
         <ImageCarousel images={images} interval={5000} />
+    </div>
+  </div>
+
+  <div className="section_container" dir={isRTL ? "rtl" : "ltr"}>
+    <div className="carousel_box">
+        <h2>{isRTL? "العروض المميزة" : "Special Offers"}</h2>
+        <ImageCarousel images={offers} interval={5000} />
     </div>
   </div>
 
