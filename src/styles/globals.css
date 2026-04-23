@@ -2172,7 +2172,7 @@ table.additional-info>tbody>tr>th {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
+  background: blue;
   min-width: 180px;
 
   /* ❌ بدل display:none */
