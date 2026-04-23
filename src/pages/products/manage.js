@@ -6,6 +6,7 @@ const ManageProducts = () => {
   const [brands, setBrands] = useState([]);
   const [units, setUnits] = useState([]);
   const [formData, setFormData] = useState({
+    code:"",
     nameEn: "",
     nameAr: "",
     descEn: "",
@@ -108,6 +109,7 @@ const ManageProducts = () => {
     if (!formData.image) return alert("Please upload an image first.");
 
     const productData = {
+      code: formData.code,
       name: { en: formData.nameEn, ar: formData.nameAr },
       description: { en: formData.descEn, ar: formData.descAr },
       image: formData.image,
@@ -141,6 +143,7 @@ const ManageProducts = () => {
 
   const resetForm = () => {
     setFormData({
+      code: "",
       nameEn: "",
       nameAr: "",
       descEn: "",
@@ -160,6 +163,7 @@ const ManageProducts = () => {
 
   const handleEdit = (p) => {
     setFormData({
+      code: p.code,
       nameEn: p.name.en,
       nameAr: p.name.ar,
       descEn: p.description.en,
@@ -189,6 +193,7 @@ const ManageProducts = () => {
 
     {/* Product Form */}
       <form onSubmit={handleSubmit} className="form-container">
+        <input className="form-field" name="code"   placeholder="Code" value={formData.code} onChange={handleChange} required />        
         <input className="form-field" name="nameEn" placeholder="Name (EN)" value={formData.nameEn} onChange={handleChange} required />
         <input className="form-field" name="nameAr" placeholder="Name (AR)" value={formData.nameAr} onChange={handleChange} required />
         <input className="form-field" name="descEn" placeholder="Description (EN)" value={formData.descEn} onChange={handleChange} />

@@ -103,8 +103,8 @@ a {
 /* HEADER COMPONENT ---------------------------------------- */
 /* For Mobile Header*/
 .headerContainerStyle {
-  background-color:blue ;
-  color: #fff;
+  background-color:white ;
+  color: blue;
   padding: 8px 16px;
   display: flex;
   align-items: center;
@@ -152,7 +152,7 @@ a {
 }
 
 .sign-wrapper button {
-  color: white;
+  color: blue;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -171,7 +171,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 6px 10px;
   border-radius: 6;
-  color: #fff;
+  color: blue;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -190,7 +190,7 @@ a {
 }
 
 .phone-number {
-  color: #fff;
+  color: blue;
   text-decoration: none;
   font-size: 26px;
 }
@@ -2037,7 +2037,7 @@ table.additional-info>tbody>tr>th {
   }
 
   .sign-wrapper button {
-    color: white;
+    color: blue;
     border: none;
     background: transparent;
     cursor: pointer;
@@ -2056,7 +2056,7 @@ table.additional-info>tbody>tr>th {
     }
 
     .phone-number {
-      color: #fff;
+      color: blue;
       text-decoration: none;
       font-size: 14px;
     }
@@ -2132,7 +2132,7 @@ table.additional-info>tbody>tr>th {
   /* Menu --------------------------*/
 /* ===== NAVBAR ===== */
 .navbar {
-  background-color: white;
+  background-color: blue;
 }
 
   /* ===== RESET ===== */
@@ -2157,7 +2157,7 @@ table.additional-info>tbody>tr>th {
 .menu span {
   display: block;
   padding: 12px 16px;
-  color: blue;
+  color: white;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -2441,17 +2441,23 @@ table.additional-info>tbody>tr>th {
 }
 
 .product-card {
+  width: 300px;
+  height: 300px;
   cursor: pointer;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
   color: #324d67;
-}
+  }
 
 .product-card:hover {
   transform: scale(1.1, 1.1);
 }
 
 .product-image {
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+  height: 30%;
   border-radius: 15px;
   background-color: #ebebeb;
   transform: scale(1, 1);
@@ -2459,6 +2465,7 @@ table.additional-info>tbody>tr>th {
 }
 
 .product-name {
+  height: 10%;
   color:red;
   font-size: 18px;
   font-weight: 500;

@@ -47,7 +47,7 @@ return (
                     `${eUSLocale(product.price)} EGP - ${product.unitId?.name?.en || ""} ` 
                     }  
                 </p>
-                <p className="product-description">{isRTL ? product.description.ar : product.description.en}</p>
+                {/*<p className="product-description">{isRTL ? product.description.ar : product.description.en}</p>*/}
             </div>
         </Link>
     </div>

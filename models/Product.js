@@ -10,6 +10,7 @@ const localizedSchema = new Schema({
 // --- Main Product Schema ---
 const productSchema = new Schema({
   // Basic product info
+  code: { type: String, required: true},
   name: { type: localizedSchema, required: true },
   description: { type: localizedSchema, required: true },
   image: { type: String, required: true },
