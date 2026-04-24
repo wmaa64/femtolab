@@ -28,6 +28,9 @@ const Home = () => {
     '/images/offers/image5.jpeg',
     '/images/offers/image6.jpeg',
     '/images/offers/image7.jpeg',
+    '/images/offers/image8.jpeg',
+    '/images/offers/image9.jpeg',
+    '/images/offers/image10.jpeg',
   ];
 
   // ✅ Fetch data client-side from API route
