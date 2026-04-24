@@ -70,7 +70,7 @@ return (
 
   <div className="section_container" dir={isRTL ? "rtl" : "ltr"}>
     <div className="carousel_box">
-        <h2>{isRTL? "نحن وكلاء" : "Agent For"}</h2>
+        <h2>{isRTL? "شركائنا" : "Our Partners"}</h2>
         <ImageCarousel images={images} interval={5000} />
     </div>
   </div>
