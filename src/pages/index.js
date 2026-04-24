@@ -31,6 +31,7 @@ const Home = () => {
     '/images/offers/image8.jpeg',
     '/images/offers/image9.jpeg',
     '/images/offers/image10.jpeg',
+    '/images/offers/image11.jpeg',
   ];
 
   // ✅ Fetch data client-side from API route
