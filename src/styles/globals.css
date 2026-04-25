@@ -393,6 +393,16 @@ a {
   flex: 1.5 ;              /* bigger than text */
 }
 
+
+.carousel_box h2 {
+  display: flex;
+  color: blue;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+
 .carousel_box img {
   width: 100%;
   height: 100%;
