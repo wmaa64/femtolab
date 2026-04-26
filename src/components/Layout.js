@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Script from "next/script";
 import Header from "../components/Header"
 import NavBar  from "./NavBar";
 
@@ -9,7 +10,6 @@ const Layout = ({ children }) => {
 return (
 <>
     <Head>
-
         {/* الأساسيات */}
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,6 +52,20 @@ return (
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/favicon/labicon32.png" color="#5bbad5" />
     </Head>
+
+    {/* Google Analytics */}
+    <Script
+        src="https://www.googletagmanager.com/gtag/js?id=534283136"
+        strategy="afterInteractive"
+    />
+    <Script id="google-analytics" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '534283136');
+        `}
+    </Script>
 
     <header>
         {/*<div className="top-bar" >
