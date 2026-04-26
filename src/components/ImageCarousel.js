@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Link from 'next/link'
 
 const ImageCarousel = ({ images, interval }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const currentImage = images[currentIndex];
   const [isHovered,setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -23,17 +25,28 @@ const ImageCarousel = ({ images, interval }) => {
 
   return (
     <div className="carousel">
-      {images.map((image, index) => (
+      <Link key={currentIndex} href={currentImage.link} target="_blank">
         <img
-          key={index}
-          src={image}
-          alt={`carousel-${index}`} 
-          loading={index === currentIndex ? "eager" : "lazy"}
-          className={`carousel-image ${currentIndex === index ? "active" : ""}`}
+          src={currentImage.src}
+          alt={`carousel-${currentIndex}`} 
+          className="carousel-image active"
           onMouseEnter={()=> setIsHovered(true)}
           onMouseLeave={()=> setIsHovered(false)}
         />
-      ))}
+      </Link>
+
+      {/*images.map((image, index) => (
+        <Link key={index} href={image.link} target="_blank">
+          <img
+            src={image.src}
+            alt={`carousel-${index}`} 
+            loading={index === currentIndex ? "eager" : "lazy"}
+            className={`carousel-image ${currentIndex === index ? "active" : ""}`}
+            onMouseEnter={()=> setIsHovered(true)}
+            onMouseLeave={()=> setIsHovered(false)}
+          />
+        </Link>
+      ))*/}
 
       {/* Navigation arrows */}
       <button className="carousel-btn prev" onClick={handlePrev}>

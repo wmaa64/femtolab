@@ -11,6 +11,41 @@ const Home = () => {
   const [mounted, setMounted] = useState(false);
 
   const images = [
+    {
+      src: '/images/borosil.jpg',
+      link: 'https://www.borosil.com/'
+    },
+    {
+      src: '/images/falcon.jpg',
+      link: 'https://www.scientificlabs.ie/brand/FALCON'
+    },
+    {
+      src: '/images/corning.jpg',
+      link: 'https://www.corning.com/worldwide/en/products/life-sciences/resources/brands/falcon-brand-products.html'
+    },
+    {
+      src: '/images/cpc.jpg',
+      link: 'https://www.cpcbiotech.it/en/'
+    },
+    {
+      src: '/images/isolab.jpg',
+      link: 'https://isolab.de/'
+    },
+    {
+      src: '/images/bioendo.jpg',
+      link: 'https://www.bioendo.com/'
+    },
+    {
+      src: '/images/tcs.jpg',
+      link: 'https://www.tcsbiosciences.co.uk/index.php'
+    },
+    {
+      src: '/images/sdfine.jpg',
+      link: 'https://sdfine.com/'
+    }
+  ]
+/*  
+  const images = [
     '/images/image1.jpg',
     '/images/image2.jpg',
     '/images/image3.jpg',
@@ -19,9 +54,25 @@ const Home = () => {
     '/images/image6.jpg',
     '/images/image7.jpg',
   ];
+*/
 
     const offers = [
-    '/images/offers/image1.jpeg',
+    { src:'/images/offers/image1.jpeg', link: ''},
+    { src:'/images/offers/image2.jpeg', link: ''},
+    { src:'/images/offers/image3.jpeg', link: ''},
+    { src:'/images/offers/image4.jpeg', link: ''},
+    { src:'/images/offers/image5.jpeg', link: ''},
+    { src:'/images/offers/image6.jpeg', link: ''},
+    { src:'/images/offers/image7.jpeg', link: ''},
+    { src:'/images/offers/image8.jpeg', link: ''},
+    { src:'/images/offers/image9.jpeg', link: ''},
+    { src:'/images/offers/image10.jpeg', link: ''},
+    { src:'/images/offers/image11.jpeg', link: ''},
+    { src:'/images/offers/image12.jpeg', link: ''}
+  ];
+
+  /*
+  const offers = [
     '/images/offers/image2.jpeg',
     '/images/offers/image3.jpeg',
     '/images/offers/image4.jpeg',
@@ -32,7 +83,8 @@ const Home = () => {
     '/images/offers/image9.jpeg',
     '/images/offers/image10.jpeg',
     '/images/offers/image11.jpeg',
-  ];
+]
+*/
 
   // ✅ Fetch data client-side from API route
   useEffect(() => {
