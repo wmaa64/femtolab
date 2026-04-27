@@ -36,10 +36,6 @@ const Home = () => {
       link: 'https://www.bioendo.com/'
     },
     {
-      src: '/images/tcs.jpg',
-      link: 'https://www.tcsbiosciences.co.uk/index.php'
-    },
-    {
       src: '/images/sdfine.jpg',
       link: 'https://sdfine.com/'
     }
