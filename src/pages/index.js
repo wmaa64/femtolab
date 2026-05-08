@@ -9,6 +9,7 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const [offers, setOffers] = useState([]);
 
   const images = [
     {
@@ -40,18 +41,14 @@ const Home = () => {
       link: 'https://sdfine.com/'
     }
   ]
-/*  
-  const images = [
-    '/images/image1.jpg',
-    '/images/image2.jpg',
-    '/images/image3.jpg',
-    '/images/image4.jpg',
-    '/images/image5.jpg',
-    '/images/image6.jpg',
-    '/images/image7.jpg',
-  ];
-*/
 
+ useEffect(() => {
+    fetch('/api/latestoffers')
+      .then(res => res.json())
+      .then(data => setOffers(data));
+  }, []);
+
+  /*
     const offers = [
     { src:'/images/offers/image1.jpeg', link: ''},
     { src:'/images/offers/image2.jpeg', link: ''},
@@ -66,20 +63,6 @@ const Home = () => {
     { src:'/images/offers/image11.jpeg', link: ''},
     { src:'/images/offers/image12.jpeg', link: ''}
   ];
-
-  /*
-  const offers = [
-    '/images/offers/image2.jpeg',
-    '/images/offers/image3.jpeg',
-    '/images/offers/image4.jpeg',
-    '/images/offers/image5.jpeg',
-    '/images/offers/image6.jpeg',
-    '/images/offers/image7.jpeg',
-    '/images/offers/image8.jpeg',
-    '/images/offers/image9.jpeg',
-    '/images/offers/image10.jpeg',
-    '/images/offers/image11.jpeg',
-]
 */
 
   // ✅ Fetch data client-side from API route
