@@ -1,4 +1,4 @@
-import Shop from '../models/Shop.js';
+import Shop from '../models/Offer.js';
 
 const getShopsForUser = async (req, res) => {
   try {

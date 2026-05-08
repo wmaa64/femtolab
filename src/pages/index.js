@@ -7,9 +7,9 @@ import i18n from '../i18n';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [allOffers, setAllOffers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
-  const [offers, setOffers] = useState([]);
 
   const images = [
     {
@@ -41,12 +41,38 @@ const Home = () => {
       link: 'https://sdfine.com/'
     }
   ]
-
+/*
  useEffect(() => {
     fetch('/api/latestoffers')
       .then(res => res.json())
       .then(data => setOffers(data));
   }, []);
+*/
+
+  // ✅ Fetch data client-side from API route
+  useEffect(() => {
+  
+    const fetchOffers = async () => {
+      try {
+        const res = await fetch("/api/offers");
+        if (!res.ok) {
+          throw new Error("Failed to fetch offers");
+        }
+        const data = await res.json();
+        
+        setAllOffers(data);
+
+      } catch (error) {
+        console.error("Error fetching offers:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOffers();
+  
+  }, [allOffers.length]); // refetch if offers count changes
+
 
   /*
     const offers = [
@@ -95,7 +121,12 @@ const Home = () => {
   if (!mounted) return null; // 🔥 prevents hydration error
 
   const isRTL = i18n.language === "ar"; // true if Arabic
-
+  
+  const offers = allOffers.slice(0, 12).map(offer => ({
+    src: `/images/offers/${offer.src}`,
+    link: offer.link || '#'
+  }));
+  
 return (
 <>
   <NextSeo
