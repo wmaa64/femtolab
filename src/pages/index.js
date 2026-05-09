@@ -71,7 +71,7 @@ const Home = () => {
 
     fetchOffers();
   
-  }, [allOffers.length]); // refetch if offers count changes
+  }, []); // refetch if offers count changes
 
 
   /*
