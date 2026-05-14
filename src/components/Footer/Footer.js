@@ -36,13 +36,13 @@ const Footer = () => {
             <div className="iconContainer">
                 <PaymentIcons />
                 <div className="icons">
-                    <a href="https://www.instagram.com/femtolab" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/femto_trade" target="_blank" rel="noopener noreferrer">
                         <AiFillInstagram   size={30} color="#E1306C" /> {/* Instagram */}
                     </a>
                     <a href="https://twitter.com/femtotradepets" target="_blank" rel="noopener noreferrer">
                         <AiOutlineTwitter  size={30} color="#1DA1F2" /> {/* Twitter */}
                     </a>
-                    <a href="https://www.facebook.com/share/femtolab" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/share/femto_trade" target="_blank" rel="noopener noreferrer">
                         <AiFillFacebook    size={30} color="#1877F2" /> {/* Facebook */}
                     </a>
                     <a href="https://wa.me/201005126629" target="_blank" rel="noopener noreferrer">

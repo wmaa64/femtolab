@@ -11,6 +11,14 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
 
+  const [success, setSuccess] = useState("");
+  const [formData, setFormData] = useState({
+      name: "",
+      email: "",
+      phone: "",
+      message: ""
+  });
+
   const images = [
     {
       src: '/images/borosil.jpg',
@@ -41,13 +49,6 @@ const Home = () => {
       link: 'https://sdfine.com/'
     }
   ]
-/*
- useEffect(() => {
-    fetch('/api/latestoffers')
-      .then(res => res.json())
-      .then(data => setOffers(data));
-  }, []);
-*/
 
   // ✅ Fetch data client-side from API route
   useEffect(() => {
@@ -73,23 +74,6 @@ const Home = () => {
   
   }, []); // refetch if offers count changes
 
-
-  /*
-    const offers = [
-    { src:'/images/offers/image1.jpeg', link: ''},
-    { src:'/images/offers/image2.jpeg', link: ''},
-    { src:'/images/offers/image3.jpeg', link: ''},
-    { src:'/images/offers/image4.jpeg', link: ''},
-    { src:'/images/offers/image5.jpeg', link: ''},
-    { src:'/images/offers/image6.jpeg', link: ''},
-    { src:'/images/offers/image7.jpeg', link: ''},
-    { src:'/images/offers/image8.jpeg', link: ''},
-    { src:'/images/offers/image9.jpeg', link: ''},
-    { src:'/images/offers/image10.jpeg', link: ''},
-    { src:'/images/offers/image11.jpeg', link: ''},
-    { src:'/images/offers/image12.jpeg', link: ''}
-  ];
-*/
 
   // ✅ Fetch data client-side from API route
   useEffect(() => {
@@ -126,7 +110,35 @@ const Home = () => {
     src: `/images/offers/${offer.src}`,
     link: offer.link || '#'
   }));
+
+  const handleChange = (e) => {
+  setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+  });
+  };
+
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+
+      const res = await fetch("/api/send-order", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+              ...formData,
+          }),
+      });
+
+      const data = await res.json();
+
+      setLoading(false);
+      setSuccess(data.message);
+  };
   
+
 return (
 <>
   <NextSeo
@@ -172,7 +184,54 @@ return (
         ) 
     }
   </div>
-    
+
+  <div className="order-message" dir={isRTL ? "rtl" : "ltr"}>
+      <h2>{isRTL ? " اطلب برسالة" : "Order By Message"}</h2>
+
+      <form onSubmit={handleSubmit}>
+          <input
+              type="text"
+              name="name"
+              placeholder={isRTL ? "الاسم" : "Name"}
+              onChange={handleChange}
+              required
+          />
+
+          <input
+              type="email"
+              name="email"
+              placeholder={isRTL ? "البريد الإلكتروني" : "Email"}
+              onChange={handleChange}
+              required
+          />
+
+          <input
+              type="text"
+              name="phone"
+              placeholder={isRTL ? "رقم الهاتف" : "Phone"}
+              onChange={handleChange}
+              required
+          />
+
+          {/* ORDER MESSAGE */}
+          <textarea
+            name="message"
+            placeholder={isRTL? "اكتب طلبك هنا" : "Write your order here"}
+            onChange={handleChange}
+            required
+            rows="8"
+          ></textarea>
+          
+          <button type="submit" disabled={loading}>
+          {loading
+              ? isRTL ? "جاري الإرسال..." : "Sending..."
+              : isRTL ? "إرسال" : "Submit"}
+          </button>
+      </form>
+
+      {success && <p>{success}</p>}
+  </div>
+
 </>
 
 )
@@ -180,6 +239,3 @@ return (
 /* ADD SERVERSIDE PROPS HERE */
 
 export default Home;
-
-
-

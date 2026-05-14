@@ -104,8 +104,8 @@ const Header = () => {
           <a href="tel:+2 01110124373" className='phone-number' >{t("phonenumber2")}</a><br/>
           <span className="phone-icon">{t("emailto")}: </span>
           {/*<MdEmail size={20} color="#d5272e" />*/}
-          <a href="mailto:info@femtolab.shop?subject=Inquiry&body=Hello" className="phone-number" >
-            📧 info@femtolab.shop
+          <a href="mailto:sales@femtotrade.com?subject=Inquiry&body=Hello" className="phone-number" >
+            📧 sales@femtotrade.com
           </a><br/>
           
           {userInfo ? (
