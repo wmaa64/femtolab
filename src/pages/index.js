@@ -136,8 +136,13 @@ const Home = () => {
 
       setLoading(false);
       setSuccess(data.message);
-  };
-  
+      setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: ""
+        });
+  }
 
 return (
 <>
@@ -236,6 +241,5 @@ return (
 
 )
 };
-/* ADD SERVERSIDE PROPS HERE */
 
 export default Home;

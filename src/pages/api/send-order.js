@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
   try {
     await resend.emails.send({
-      from: "sales@femtotrade.com",
+      from: "info@femtolab.shop",
       to: "sales@femtotrade.com",
       reply_to: email,
       subject: `New Order: ${today}`,
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
       `,
     });
 
-    
+
     return res.status(200).json({ message: "Email sent successfully" });
 
   } catch (error) {
