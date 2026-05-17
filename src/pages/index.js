@@ -120,28 +120,42 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
+      
       setLoading(true);
-
-      const res = await fetch("/api/send-order", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-              ...formData,
-          }),
-      });
-
-      const data = await res.json();
-
-      setLoading(false);
-      setSuccess(data.message);
-      setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: ""
+      setSuccess("");
+      try {
+        const res = await fetch("/api/send-order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                ...formData,
+            }),
         });
+
+        const data = await res.json();
+
+        setLoading(false);
+
+        if (res.ok) {
+              setSuccess(data.message);
+
+              // ✅ CLEAR FORM
+              setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                message: "",
+              });
+
+            } else {
+              setSuccess("Failed to send message");
+            }
+    } catch (error) {
+      console.error("Error submitting order:", error);
+      setLoading(false);
+    }
   }
 
 return (
@@ -197,6 +211,7 @@ return (
           <input
               type="text"
               name="name"
+              value={formData.name}
               placeholder={isRTL ? "الاسم" : "Name"}
               onChange={handleChange}
               required
@@ -205,6 +220,7 @@ return (
           <input
               type="email"
               name="email"
+              value={formData.email}
               placeholder={isRTL ? "البريد الإلكتروني" : "Email"}
               onChange={handleChange}
               required
@@ -213,6 +229,7 @@ return (
           <input
               type="text"
               name="phone"
+              value={formData.phone}
               placeholder={isRTL ? "رقم الهاتف" : "Phone"}
               onChange={handleChange}
               required
@@ -221,6 +238,7 @@ return (
           {/* ORDER MESSAGE */}
           <textarea
             name="message"
+            value={formData.message}
             placeholder={isRTL? "اكتب طلبك هنا" : "Write your order here"}
             onChange={handleChange}
             required
