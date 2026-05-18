@@ -62,12 +62,39 @@ const getProductsByQuery = async (searchTerm) => {
   try {
     // Use MongoDB's text search or regex search for partial matches
     const products = await Product.find({
-      $or: [
-        {name: { $regex: searchTerm, $options: 'i' }},          // Search in name
-        {category: { $regex: searchTerm, $options: 'i' }},
-        {description: { $regex: searchTerm, $options: 'i' }}
-      ]
-    });
+            $or: [
+                {
+                  code: {
+                    $regex: searchTerm,
+                    $options: "i",
+                  },
+                },
+                {
+                    "name.en": {
+                        $regex: searchTerm,
+                        $options: "i",
+                    },
+                },
+                {
+                    "name.ar": {
+                        $regex: searchTerm,
+                        $options: "i",
+                    },
+                },
+                {
+                    "description.en": {
+                        $regex: searchTerm,
+                        $options: "i",
+                    },
+                },
+                {
+                    "description.ar": {
+                        $regex: searchTerm,
+                        $options: "i",
+                    },
+                },
+            ],
+        }).limit(50);
 
     return products;
   
@@ -123,6 +150,7 @@ const getSubCategoriesProducts = async (subcategoryIdsString) => {
     throw new Error('Unable to fetch products by subcategories.');
   }
 };
+
 
 //-----------
 
