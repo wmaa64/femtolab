@@ -16,8 +16,14 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { message } = req.body;
+    const { messages } = req.body;
+  
+    const lastMessage =  messages[messages.length - 1]?.content || "";
 
+    const isArabic =  /[\u0600-\u06FF]/.test(lastMessage);
+
+    const replyLanguage =    isArabic ? "Arabic" : "English";
+    
     const productsContext = formatProducts(productsData);
 
     const response = await fetch(
@@ -35,6 +41,10 @@ export default async function handler(req, res) {
               role: "system",
                 content: `
                     You are a professional sales assistant for femtolab.shop.
+
+                    IMPORTANT:
+                    Always reply ONLY in ${replyLanguage}.
+                    Do not switch languages unless the customer does.
 
                     Your goals:
                     - Help customers find suitable products
@@ -65,6 +75,9 @@ export default async function handler(req, res) {
                     - Reply in the same language used by the customer
                     - If customer writes Arabic, respond in Arabic
                     - If customer writes English, respond in English
+                    - If customer wants to buy, order, reserve, or continue purchasing,
+                    ask them to contact sales on:
+                    +20 1005126629
 
                     Formatting:
                     - Use bullet points for product lists
@@ -77,11 +90,8 @@ export default async function handler(req, res) {
                     - Encourage customer to ask more questions
                     `,
             },
-            {
-              role: "user",
-              content: message,
-            },
-          ],
+            ...messages,
+           ],
           temperature: 0.4,
         }),
       }

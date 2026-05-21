@@ -1,14 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
   const [reply, setReply] = useState("");
   const [loading, setLoading] = useState(false);
+  const messagesEndRef = useRef(null);
+
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({
+        behavior: "smooth",
+    });
+
+    }, [messages]);
 
   const sendMessage = async () => {
 
-    if (!message) return;
+    if (!message.trim()) return;
+
+    const updatedMessages = [
+        ...messages,
+        {
+        role: "user",
+        content: message,
+        },
+    ];
+
+    setMessages(updatedMessages);
 
     setLoading(true);
 
@@ -20,13 +39,23 @@ export default function ChatBot() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message,
+          messages: updatedMessages,
         }),
       });
 
       const data = await response.json();
 
-      setReply(data.reply);
+      const assistantMessage = {
+        role: "assistant",
+        content: data.reply,
+        };
+
+        setMessages([
+        ...updatedMessages,
+        assistantMessage,
+        ]);
+
+        setMessage("");
 
     } catch (error) {
 
@@ -42,6 +71,15 @@ export default function ChatBot() {
 
     <div className={`chatbot ${isOpen ? "open" : "closed"}`}>
 
+        {isOpen && (
+            <button
+                className="clear-chat"
+                onClick={() => setMessages([])}
+            >
+                New Chat
+            </button>
+        )}
+        
       {/* Header */}
       <div
         className="chatbot-header"
@@ -58,6 +96,29 @@ export default function ChatBot() {
       {isOpen && (
         <div className="chatbot-body">
 
+          <div className="chat-history">
+
+            {messages.map((msg, index) => (
+
+                <div
+                key={index}
+                className={`chat-message ${msg.role}`}
+                >
+                {msg.content}
+                </div>
+
+            ))}
+
+            {loading && (
+                <div className="chat-message assistant">
+                    Thinking...
+                </div>
+            )}
+            
+            <div ref={messagesEndRef} />
+
+          </div>
+
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
@@ -67,14 +128,6 @@ export default function ChatBot() {
           <button onClick={sendMessage}>
             Send
           </button>
-
-          {loading && <p>Thinking...</p>}
-
-          {reply && (
-            <div className="reply">
-              {reply}
-            </div>
-          )}
 
         </div>
       )}
