@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import ImageCarousel from '../components/ImageCarousel';
 import Product from '../components/Product';
 import i18n from '../i18n';
-//import productsData from "../../data/products";
+import ChatBot from '../components/ChatBot';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -254,6 +254,8 @@ return (
 
       {success && <p>{success}</p>}
   </div>
+  
+  <ChatBot />
 
 </>
 
