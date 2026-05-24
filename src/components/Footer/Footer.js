@@ -5,6 +5,8 @@ import i18n from "../../i18n";
 import MiniCart from "../MiniCart";
 import { useStateContext } from "../../../context/StateContext";
 import { AiFillInstagram, AiOutlineTwitter, AiFillFacebook, AiOutlineWhatsApp } from "react-icons/ai";
+import ChatBot from '../ChatBot';
+
 
 const Footer = () => {
     const { showCart } = useStateContext();
@@ -52,6 +54,9 @@ const Footer = () => {
             </div>
         </div>
         <p className="copyright">{isRTL? "2006 جميع الحقوق محفوظة لـ فمتوتريد.شوب " : "2026 Femtotrade.shop All rights reserved"}</p>
+        
+        <ChatBot />
+
     </>
   );
 };
