@@ -65,6 +65,7 @@ a {
   transform: scale(1.1, 1.1);
 }
 
+
 /* Product Page and Cart --------------------------- */
 .quantity-desc {
   border: none;
@@ -944,6 +945,41 @@ a {
     transform: translateX(-50%);
   }
 }
+
+/* ORDER BY MESSAGE PAGE ---------------------------------------- */
+.order-message {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-message form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+  
+}
+
+.order-message input,
+.order-message button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid yellow;
+  border-radius: 4px;
+}
+
+.order-message button {
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* === End of ORDER BY MESSAGE Styles === */
 
 /* PRODUCT PAGE ------------------------------------- */
 .products-container {
