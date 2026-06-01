@@ -40,13 +40,13 @@ return (
                     </figcaption>
                 </figure>
 
-                <p className="product-name">{isRTL ? product.name.ar : product.name.en}</p>
                 <p className="product-price">{isRTL ? 
                     `جنيه مصرى
                     ${eARLocale(product.price)} - ${product.unitId?.name?.ar || "" }` : 
                     `${eUSLocale(product.price)} EGP - ${product.unitId?.name?.en || ""} ` 
                     }  
                 </p>
+                <p className="product-name">{isRTL ? product.name.ar : product.name.en}</p>
                 {/*<p className="product-description">{isRTL ? product.description.ar : product.description.en}</p>*/}
             </div>
         </Link>

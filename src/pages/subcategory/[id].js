@@ -21,10 +21,6 @@ const SubCategoryProducts = () => {
   const { decQty, incQty, qty, onAdd, setShowCart, totalQuantities } = useStateContext();
 
   useEffect(() => {
-        setMounted(true);
-    }, []);
-
-  useEffect(() => {
     if (!id) return; // Wait until router is ready
 
     const fetchData = async () => {
@@ -42,6 +38,10 @@ const SubCategoryProducts = () => {
 
     fetchData();
   }, [id]);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
   if (!mounted) return null; // 🔥 prevents hydration error
 

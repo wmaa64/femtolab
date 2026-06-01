@@ -1019,7 +1019,7 @@ a {
   font-size: 18px;
   font-weight: 500;
   text-align: center;
-  color: green;
+  color: darkgreen;
 }
 
 .product-description {
@@ -2880,10 +2880,11 @@ table.additional-info>tbody>tr>th {
 
 .product-name {
   height: 10%;
-  color:red;
+  color: darkgreen;
   font-size: 18px;
   font-weight: 500;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .product-description {
@@ -2895,8 +2896,8 @@ table.additional-info>tbody>tr>th {
 
 .product-price {
   font-weight: 800;
-  margin-top: 15px;
-  color: darkgreen;
+  margin-top: 10px;
+  color: red;
   text-align: center;
 }
 
